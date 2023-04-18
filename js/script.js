@@ -24,3 +24,10 @@ for (i = 0; i <= mail.length; i++) {
     }
     break;
 }
+
+if(x == 1) {
+    alert("La mail è registrata");
+}
+else {
+    alert("La mail non è stata registrata");
+}
