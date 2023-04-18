@@ -5,34 +5,46 @@ const mail = ["pasquale@gmail.com", "alicia@gmail.com", "luca@libero.it", "angel
 // --- VARIABLES ---
 
 let verify;
-let add;
 let i;
 let x;
-
-// --- INPUTS ---
-
-verify = document.getElementById("mail").value;
-console.log(verify);
 
 // --- FUNCTIONS ---
 
 function load() {
-    for (i = 0; i <= mail.length; i++) {
+    verify = document.getElementById("mail").value;
+    for (i = 0; i < mail.length; i++) {
         if(verify == mail[i]) {
             x = 1;
+            break;
         }
         else {
             x = 2;
         }
-        console.log(x);
-        break;
     }
     if(x == 1) {
-        document.getElementById("not_signed").style.display = "block";
-    }
-    else {
         document.getElementById("signed").style.display = "block";
     }
+    else {
+        document.getElementById("not_signed").style.display = "block";
+    }
+}
+
+// ------
+
+function add() {
+    document.getElementById("not_signed").style.display = "none";
+    mail.push(verify);
+    verify = document.getElementById("mail");
+    verify.value = '';
+}
+
+// ------
+
+function undo() {
+    document.getElementById("not_signed").style.display = "none";
+    verify = document.getElementById("mail");
+    verify.value = '';
+    document.getElementById("ok").style.display = "block";
 }
 
 // --- CHECKS ---
